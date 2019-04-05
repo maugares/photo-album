@@ -1,0 +1,6 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-items: center;
+}

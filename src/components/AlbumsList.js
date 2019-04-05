@@ -8,7 +8,7 @@ export default function AlbumsList(props) {
 
       There are {props.albums.length} albums available
 
-      <ul class="album-list">
+      <ul className="album-list">
         {props.albums.map(album => {
           // console.log(album)
           return <li key={album.id}>{album.title}</li>
