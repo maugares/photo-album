@@ -4,6 +4,8 @@ import AlbumsList from './AlbumsList'
 import logo from '../logo.svg';
 import './AlbumsListContainer.css'
 import { connect } from 'react-redux';
+import { helloWorld } from '../actions/test'
+import { addAlbum } from '../actions/addAlbum'
 
 class AlbumsListContainer extends React.Component {
   state = {}
@@ -11,13 +13,8 @@ class AlbumsListContainer extends React.Component {
   componentDidMount() {
     request('https://jsonplaceholder.typicode.com/albums')
       .then(response => this.setState({ albums: response.body }))
-    this.props.dispatch({
-      type: 'HELLO_WORLD',
-      payload: {
-        firstName: 'Alice',
-        lastName: 'McDog',
-      }
-    })
+    this.props.helloWorld('Alice', 'Seriously Alice')
+    this.props.addAlbum(5, 'hi')
   }
 
   render() {
@@ -33,4 +30,4 @@ class AlbumsListContainer extends React.Component {
   }
 }
 
-export default connect()(AlbumsListContainer)
+export default connect(null, { helloWorld, addAlbum })(AlbumsListContainer)
