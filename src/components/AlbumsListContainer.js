@@ -4,20 +4,14 @@ import AlbumsList from './AlbumsList'
 import logo from '../logo.svg';
 import './AlbumsListContainer.css'
 import { connect } from 'react-redux';
-import { addAlbum } from '../actions/addAlbum'
-
-const sleep = time => new Promise(
-  resolve => setTimeout(() => resolve(`I waited for ${time} ms`), time)
-)
+import { setAlbums } from '../actions/addAlbum'
 
 class AlbumsListContainer extends React.Component {
   state = {}
 
   componentDidMount() {
-    // request('https://jsonplaceholder.typicode.com/albums')
-    //   .then(response => this.setState({ albums: response.body })
-    this.props.addAlbum(5, 'Enjoying sunshine')
-    this.props.addAlbum(10, 'Having fun in the US')
+    request('https://jsonplaceholder.typicode.com/albums')
+      .then(response => this.props.setAlbums(response.body))
   }
 
   render() {
@@ -39,4 +33,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addAlbum })(AlbumsListContainer)
+export default connect(mapStateToProps, { setAlbums })(AlbumsListContainer)
