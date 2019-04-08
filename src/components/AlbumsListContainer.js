@@ -4,7 +4,7 @@ import AlbumsList from './AlbumsList'
 import logo from '../logo.svg';
 import './AlbumsListContainer.css'
 import { connect } from 'react-redux';
-import { setAlbums } from '../actions/addAlbum'
+import { setAlbums } from '../actions/albums'
 
 class AlbumsListContainer extends React.Component {
   state = {}

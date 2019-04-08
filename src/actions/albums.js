@@ -18,3 +18,9 @@ export function setAlbums(albums){
     payload: albums,
   }
 }
+
+export const GET_ALBUMS = 'GET_ALBUMS'
+
+export function getAlbums(album) {
+  
+}
